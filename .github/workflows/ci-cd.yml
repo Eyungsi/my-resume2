@@ -9,7 +9,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  AWS_ROLE: ${{SECRETS.AWS_ROLE}}
+  AWS_ROLE: ${{SECRETS.AWS_ACTION_ROLE}}
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ env.AWS_ROLE}}
-          aws-region: ${{ env.AWS_REGION}}
+          aws-region: ${{ env.AWS_ACTION_REGION}}
       - name: loging to ecr
         uses: aws-actions/amazon-ecr-login@v1
           
